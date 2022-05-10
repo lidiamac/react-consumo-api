@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ListaProdutos from "../../components/ListaProdutos";
+import {base} from '../../environments';
 
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
     const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
-        axios.get('${base}/produtos/')
+        axios.get(`${base}/produtos/`)
             .then((response) => {
                 setProdutos(response.data)
             })
